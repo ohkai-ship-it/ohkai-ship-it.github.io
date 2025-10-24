@@ -187,14 +187,14 @@ export default function App() {
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a
-                href="mailto:your.email@example.com"
+                href="mailto:kai.voges@gmx.net"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-[#323B4C] text-[#323B4C] rounded-md hover:bg-[#323B4C] hover:text-white transition-all duration-300"
               >
                 <Mail size={20} />
                 Email
               </a>
               <a
-                href="https://github.com/yourusername"
+                href="https://github.com/ohkai-ship-it"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-[#323B4C] text-[#323B4C] rounded-md hover:bg-[#323B4C] hover:text-white transition-all duration-300"
@@ -203,7 +203,7 @@ export default function App() {
                 GitHub
               </a>
               <a
-                href="https://linkedin.com/in/yourusername"
+                href="https://www.linkedin.com/in/worldapprentice/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-[#323B4C] text-[#323B4C] rounded-md hover:bg-[#323B4C] hover:text-white transition-all duration-300"
