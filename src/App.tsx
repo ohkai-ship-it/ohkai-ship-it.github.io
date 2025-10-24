@@ -46,15 +46,15 @@ export default function App() {
       description: "Designed comprehensive system architecture for an AI-powered cybersecurity platform. Created detailed Figma prototypes and technical documentation for cross-team alignment.",
       quote: "Bridging security operations with intelligent automation",
       tags: ["System Design", "Figma", "Architecture", "AI/ML"],
-      image: "https://images.unsplash.com/photo-1664526937033-fe2c11f1be25?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjeWJlcnNlY3VyaXR5JTIwbmV0d29yayUyMGFyY2hpdGVjdHVyZXxlbnwxfHx8fDE3NjEzMTI5MDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      image: "/images/cybersecurity.png",
       inDevelopment: false,
     },
     {
-      title: "Joblification",
+      title: "Joblication",
       description: "Built automated job application assistant using Flask and OpenAI APIs. Streamlines resume customization and cover letter generation with intelligent parsing.",
       quote: "Making job hunting efficient through smart automation",
       tags: ["Flask", "OpenAI", "Automation", "Python"],
-      image: "https://images.unsplash.com/photo-1664526937033-fe2c11f1be25?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhdXRvbWF0aW9uJTIwd29ya2Zsb3clMjBkaWFncmFtfGVufDF8fHx8MTc2MTMxMjkwNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      image: "/images/joblication.png",
       inDevelopment: false,
     },
     {
@@ -62,7 +62,7 @@ export default function App() {
       description: "Developing multi-agent system for personalized travel planning. Orchestrates specialized agents for recommendations, booking, and itinerary optimization.",
       quote: "Intelligent agents working together for seamless travel experiences",
       tags: ["Multi-Agent", "LangChain", "Travel Tech", "AI Orchestration"],
-      image: "https://images.unsplash.com/photo-1650171457588-dc7baef3ed22?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxBSSUyMHJvYm90JTIwYXNzaXN0YW50fGVufDF8fHx8MTc2MTI5MzM3NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      image: "/images/travel-assistant.svg",
       inDevelopment: true,
     },
   ];
