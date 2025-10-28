@@ -44,7 +44,7 @@ export default function App() {
     {
       title: "Unified AI Fabric & Copilot for Security Operations",
       description: "Architected a unified AI Fabric for enterprise security operations, moving from siloed features to a scalable multi-tenant platform. Designed comprehensive system diagrams and interactive prototype showcasing threat intelligence, predictive analytics, and GenAI with RAG. Included production considerations: gated rollouts, observability, cost controls, and tiered monetization strategy aligned to measurable business outcomes.",
-      quote: "From whiteboard to wireframes — architecting an enterprise AI platform with production-grade thinking",
+      quote: "From whiteboard to wireframes — architecting an enterprise AI platform\nwith production-grade thinking for enterprise scalability",
       tags: ["System Architecture", "AI Platform", "Multi-tenant SaaS", "MLOps", "RAG", "Kubernetes", "Enterprise PM", "Eraser.io", "Figma"],
       links: [
         { text: "View Architecture", url: "https://app.eraser.io/workspace/woQji0k3PtmoGtlTHJaN?origin=share" },
@@ -54,9 +54,9 @@ export default function App() {
       inDevelopment: false,
     },
     {
-      title: "Joblication - AI Job Application Assistant",
+      title: "Joblication\nAI Job Application Assistant",
       description: "Full-stack Flask application automating job applications end-to-end. Scrapes job postings, structures data, populates Trello boards with intelligent tags, and generates personalized cover letters using OpenAI. Built with modular architecture, template-based document generation, and production-grade error handling. Solves the real problem of scaling personalized job applications while maintaining quality and consistency.",
-      quote: "From job posting to personalized cover letter in one click — automation meets personalization",
+      quote: "From job posting to personalized cover letter in one click\nautomation meets personalization at scale",
       tags: ["Python", "Flask", "OpenAI API", "Web Scraping", "BeautifulSoup", "Trello API", "Automation", "Full-Stack", "python-docx"],
       links: [
         { text: "View on GitHub", url: "https://github.com/ohkai-ship-it/job-application-automation/blob/master/README.md" },
@@ -65,9 +65,9 @@ export default function App() {
       inDevelopment: false,
     },
     {
-      title: "Agentic AI Travel Assistant",
+      title: "Agentic AI Travel Assistant\nIntelligent Journey Planning",
       description: "Building a multi-agent system for intelligent travel planning and booking. Orchestrating specialized AI agents that autonomously handle research, price optimization, itinerary coordination, and booking workflows. Exploring cutting-edge agentic frameworks for agent communication, task delegation, and coordinated decision-making. Each agent operates with specific expertise while collaborating toward unified travel goals.",
-      quote: "Teaching AI agents to plan your perfect trip — autonomous, coordinated, intelligent",
+      quote: "Teaching AI agents to plan your perfect trip\nautonomous, coordinated, intelligent collaboration\nwhere each agent brings specialized expertise",
       tags: ["Agentic AI", "LangChain", "Multi-Agent Systems", "Autonomous Systems", "LLM Orchestration", "Product Development"],
       links: [],
       image: "/images/travel-assistant.svg",
@@ -163,11 +163,11 @@ export default function App() {
                     </div>
                   )}
                 </div>
-                <div className="p-6">
-                  <h3 className="mb-3 text-[#323B4C]">{project.title}</h3>
-                  <p className="text-gray-700 mb-3">{project.description}</p>
-                  <p className="text-gray-500 italic mb-4 text-sm" style={{ lineHeight: "1.4" }}>"{project.quote}"</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
+                <div className="p-6 flex flex-col h-full">
+                  <h3 className="mb-3 text-[#323B4C] text-xl font-semibold min-h-16">{project.title}</h3>
+                  <p className="text-gray-500 italic mb-4 text-sm min-h-16" style={{ lineHeight: "1.4" }}>"{project.quote}"</p>
+                  <p className="text-gray-700 mb-4">{project.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-4 min-h-10">
                     {project.tags.map((tag, tagIndex) => (
                       <Badge
                         key={tagIndex}
@@ -178,21 +178,26 @@ export default function App() {
                       </Badge>
                     ))}
                   </div>
-                  {project.links && project.links.length > 0 && (
-                    <div className="mt-4 pt-4 border-t border-gray-200">
-                      {project.links.map((link, linkIndex) => (
-                        <a
-                          key={linkIndex}
-                          href={link.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-block mr-4 text-[#323B4C] text-sm font-medium no-underline hover:text-gray-600 hover:underline transition-colors"
-                        >
-                          {link.text} →
-                        </a>
-                      ))}
+                  <div className="mt-auto">
+                    <div className="pt-4 border-t border-gray-200">
+                      {project.links && project.links.length > 0 && (
+                        <>
+                          {project.links.map((link, linkIndex) => (
+                            <div key={linkIndex} className="mb-2">
+                              <a
+                                href={link.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-[#323B4C] text-sm font-medium no-underline hover:text-gray-600 hover:underline transition-colors"
+                              >
+                                {link.text} →
+                              </a>
+                            </div>
+                          ))}
+                        </>
+                      )}
                     </div>
-                  )}
+                  </div>
                 </div>
               </Card>
             ))}
