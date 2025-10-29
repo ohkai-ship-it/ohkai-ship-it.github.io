@@ -59,7 +59,7 @@ export default function App() {
       quote: "From job posting to personalized cover letter in one click\nautomation meets personalization at scale",
       tags: ["Python", "Flask", "OpenAI API", "Web Scraping", "BeautifulSoup", "Trello API", "Automation", "Full-Stack", "python-docx"],
       links: [
-        { text: "View on GitHub", url: "https://github.com/ohkai-ship-it/job-application-automation/blob/master/README.md" },
+        { text: "View on GitHub", url: "https://github.com/ohkai-ship-it/job-application-automation" },
       ],
       image: "/images/joblication.png",
       inDevelopment: false,
