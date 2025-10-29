@@ -44,7 +44,7 @@ export default function App() {
     {
       title: "Unified AI Fabric & Copilot for Security Operations",
       description: "Architected a unified AI Fabric for enterprise security operations, moving from siloed features to a scalable multi-tenant platform. Designed comprehensive system diagrams and interactive prototype showcasing threat intelligence, predictive analytics, and GenAI with RAG. Included production considerations: gated rollouts, observability, cost controls, and tiered monetization strategy aligned to measurable business outcomes.",
-      quote: "From whiteboard to wireframe — architecting an enterprise AI platform\nwith production-grade thinking for enterprise scalability",
+      quote: "From whiteboard to wireframes — architecting an enterprise AI platform\nwith production-grade thinking for enterprise scalability",
       tags: ["System Architecture", "AI Platform", "Multi-tenant SaaS", "MLOps", "RAG", "Kubernetes", "Enterprise PM", "Eraser.io", "Figma"],
       links: [
         { text: "View Architecture", url: "https://app.eraser.io/workspace/woQji0k3PtmoGtlTHJaN?origin=share" },
