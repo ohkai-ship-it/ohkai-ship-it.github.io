@@ -76,11 +76,11 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-light-gray">
+    <div className="min-h-screen bg-[#F2F2F2]">
       {/* Header Section */}
-      <header className="relative overflow-hidden bg-gradient-primary text-white py-32 px-4">
+      <header className="relative overflow-hidden text-white py-32 px-4" style={{ background: 'linear-gradient(135deg, #3D4E5C 0%, #658199 100%)' }}>
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="mb-4 text-display">Dr. Kai Voges</h1>
+          <h1 className="mb-4 text-4xl font-bold">Dr. Kai Voges</h1>
           <p className="text-xl opacity-90">Product Manager | AI & Technical Architecture</p>
         </div>
       </header>
@@ -94,8 +94,11 @@ export default function App() {
                 key={section}
                 onClick={() => scrollToSection(section)}
                 className={`capitalize transition-colors duration-300 ${
-                  activeSection === section ? "text-teal font-semibold" : "text-dark-gray hover:text-teal"
+                  activeSection === section ? "font-semibold" : "hover:text-opacity-70"
                 }`}
+                style={{
+                  color: activeSection === section ? '#2A747E' : '#717171'
+                }}
               >
                 {section}
               </button>
@@ -107,9 +110,9 @@ export default function App() {
       {/* About Section */}
       <section id="about" className="py-20 px-4">
         <div className="max-w-3xl mx-auto">
-          <Card className="p-8 shadow-md hover:shadow-lg transition-shadow duration-300 border border-medium-gray rounded-lg">
-            <h2 className="mb-6 text-h2 text-slate-blue font-semibold">About</h2>
-            <div className="space-y-4 text-charcoal">
+          <Card className="p-8 shadow-md hover:shadow-lg transition-shadow duration-300 border rounded-lg" style={{ borderColor: '#E5E5E5' }}>
+            <h2 className="mb-6 text-2xl font-semibold" style={{ color: '#3D4E5C' }}>About</h2>
+            <div className="space-y-4" style={{ color: '#333333' }}>
               <p>
                 I specialize in bridging the gap between complex technical systems and user needs. As a Product Manager with deep technical expertise in AI and system architecture, I transform ambitious ideas into scalable, intelligent products. My approach combines strategic thinking with hands-on prototyping to validate concepts quickly and effectively.
               </p>
@@ -124,15 +127,16 @@ export default function App() {
       {/* Skills Section */}
       <section id="skills" className="py-20 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-center mb-12 text-h2 text-slate-blue font-semibold">Core Capabilities</h2>
+          <h2 className="text-center mb-12 text-2xl font-semibold" style={{ color: '#3D4E5C' }}>Core Capabilities</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {skills.map((skill, index) => (
               <Card
                 key={index}
-                className="p-6 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-medium-gray rounded-lg"
+                className="p-6 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border rounded-lg"
+                style={{ borderColor: '#E5E5E5' }}
               >
-                <h3 className="mb-3 text-h3 text-slate-blue font-medium">{skill.title}</h3>
-                <p className="text-dark-gray text-body">{skill.description}</p>
+                <h3 className="mb-3 text-xl font-medium" style={{ color: '#3D4E5C' }}>{skill.title}</h3>
+                <p style={{ color: '#717171' }}>{skill.description}</p>
               </Card>
             ))}
           </div>
@@ -140,16 +144,17 @@ export default function App() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 px-4 bg-light-gray">
+      <section id="projects" className="py-20 px-4" style={{ backgroundColor: '#F2F2F2' }}>
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-center mb-12 text-h2 text-slate-blue font-semibold">Projects</h2>
+          <h2 className="text-center mb-12 text-2xl font-semibold" style={{ color: '#3D4E5C' }}>Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <Card
                 key={index}
-                className="overflow-hidden shadow-md hover:shadow-lg hover:-translate-y-2 transition-all duration-300 border border-medium-gray rounded-lg bg-white flex flex-col"
+                className="overflow-hidden shadow-md hover:shadow-lg hover:-translate-y-2 transition-all duration-300 border rounded-lg bg-white flex flex-col"
+                style={{ borderColor: '#E5E5E5' }}
               >
-                <div className="relative h-48 bg-gradient-primary overflow-hidden">
+                <div className="relative h-48 overflow-hidden" style={{ background: 'linear-gradient(135deg, #3D4E5C 0%, #658199 100%)' }}>
                   <ImageWithFallback
                     src={project.image}
                     alt={project.title}
@@ -157,28 +162,29 @@ export default function App() {
                   />
                   {project.inDevelopment && (
                     <div className="absolute top-4 right-4">
-                      <Badge className="bg-vibrant-orange text-white border-none font-medium text-micro">
+                      <Badge className="text-white border-none font-medium text-xs" style={{ backgroundColor: '#E4980E' }}>
                         In Development
                       </Badge>
                     </div>
                   )}
                 </div>
                 <div className="p-6 flex flex-col h-full">
-                  <h3 className="mb-3 text-h3 text-slate-blue font-semibold min-h-16">{project.title}</h3>
-                  <p className="text-dark-gray italic mb-4 text-small min-h-16" style={{ lineHeight: "1.4" }}>"{project.quote}"</p>
-                  <p className="text-charcoal mb-4 text-body">{project.description}</p>
+                  <h3 className="mb-3 text-xl font-semibold min-h-16" style={{ color: '#3D4E5C' }}>{project.title}</h3>
+                  <p className="italic mb-4 text-sm min-h-16" style={{ color: '#717171', lineHeight: "1.4" }}>"{project.quote}"</p>
+                  <p className="mb-4" style={{ color: '#333333' }}>{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4 min-h-10">
                     {project.tags.map((tag, tagIndex) => (
                       <Badge
                         key={tagIndex}
-                        className="bg-light-gray text-slate-blue border border-medium-gray text-micro font-medium"
+                        className="text-xs font-medium border"
+                        style={{ backgroundColor: '#F2F2F2', color: '#3D4E5C', borderColor: '#E5E5E5' }}
                       >
                         {tag}
                       </Badge>
                     ))}
                   </div>
                   <div className="mt-auto">
-                    <div className="pt-4 border-t border-medium-gray">
+                    <div className="pt-4" style={{ borderTop: '1px solid #E5E5E5' }}>
                       {project.links && project.links.length > 0 && (
                         <>
                           {project.links.map((link, linkIndex) => (
@@ -187,7 +193,10 @@ export default function App() {
                                 href={link.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-teal text-small font-semibold no-underline hover:text-vibrant-orange transition-colors"
+                                className="text-sm font-semibold no-underline transition-colors hover:underline"
+                                style={{ color: '#2A747E' }}
+                                onMouseEnter={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#E4980E'}
+                                onMouseLeave={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#2A747E'}
                               >
                                 {link.text} →
                               </a>
@@ -207,15 +216,18 @@ export default function App() {
       {/* Contact Section */}
       <section id="contact" className="py-20 px-4 bg-white">
         <div className="max-w-3xl mx-auto">
-          <Card className="p-8 shadow-md border border-medium-gray rounded-lg text-center">
-            <h2 className="mb-6 text-h2 text-slate-blue font-semibold">Let's Connect</h2>
-            <p className="text-charcoal mb-8 text-body">
+          <Card className="p-8 shadow-md border rounded-lg text-center" style={{ borderColor: '#E5E5E5' }}>
+            <h2 className="mb-6 text-2xl font-semibold" style={{ color: '#3D4E5C' }}>Let's Connect</h2>
+            <p className="mb-8" style={{ color: '#333333' }}>
               Interested in collaborating or discussing AI product development? Reach out through any of these channels.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a
                 href="mailto:kai.voges@gmx.net"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-teal text-white rounded-md hover:bg-slate-blue transition-all duration-300 font-semibold"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 text-white rounded-md transition-all duration-300 font-semibold"
+                style={{ backgroundColor: '#2A747E' }}
+                onMouseEnter={(e) => (e.currentTarget as HTMLAnchorElement).style.backgroundColor = '#3D4E5C'}
+                onMouseLeave={(e) => (e.currentTarget as HTMLAnchorElement).style.backgroundColor = '#2A747E'}
               >
                 <Mail size={20} />
                 Email
@@ -224,7 +236,16 @@ export default function App() {
                 href="https://github.com/ohkai-ship-it"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-slate-blue text-slate-blue rounded-md hover:bg-slate-blue hover:text-white transition-all duration-300 font-semibold"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 rounded-md transition-all duration-300 font-semibold"
+                style={{ borderColor: '#3D4E5C', color: '#3D4E5C' }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.backgroundColor = '#3D4E5C';
+                  (e.currentTarget as HTMLAnchorElement).style.color = '#FFFFFF';
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.backgroundColor = 'transparent';
+                  (e.currentTarget as HTMLAnchorElement).style.color = '#3D4E5C';
+                }}
               >
                 <Github size={20} />
                 GitHub
@@ -233,7 +254,16 @@ export default function App() {
                 href="https://www.linkedin.com/in/worldapprentice/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-slate-blue text-slate-blue rounded-md hover:bg-slate-blue hover:text-white transition-all duration-300 font-semibold"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 rounded-md transition-all duration-300 font-semibold"
+                style={{ borderColor: '#3D4E5C', color: '#3D4E5C' }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.backgroundColor = '#3D4E5C';
+                  (e.currentTarget as HTMLAnchorElement).style.color = '#FFFFFF';
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.backgroundColor = 'transparent';
+                  (e.currentTarget as HTMLAnchorElement).style.color = '#3D4E5C';
+                }}
               >
                 <Linkedin size={20} />
                 LinkedIn
@@ -244,8 +274,8 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-charcoal text-white py-8 text-center">
-        <p className="text-dark-gray">© 2025 Portfolio. All rights reserved.</p>
+      <footer className="text-white py-8 text-center" style={{ backgroundColor: '#333333' }}>
+        <p style={{ color: '#717171' }}>© 2025 Portfolio. All rights reserved.</p>
       </footer>
     </div>
   );
