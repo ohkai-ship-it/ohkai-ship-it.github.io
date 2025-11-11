@@ -1,171 +1,149 @@
-import { useState } from "react";
-import { Card } from "./components/ui/card";
-import { Badge } from "./components/ui/badge";
-import { Mail, Github, Linkedin } from "lucide-react";
-import { ImageWithFallback } from "./components/figma/ImageWithFallback";
+import { Navigation } from './components/Navigation';
+import { ProjectCard } from './components/ProjectCard';
+import { SkillCard } from './components/SkillCard';
+import { Mail, Linkedin, Github } from 'lucide-react';
 
 export default function App() {
-  const [activeSection, setActiveSection] = useState("about");
-
-  const scrollToSection = (sectionId: string) => {
-    setActiveSection(sectionId);
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
-  };
-
-  const skills = [
-    {
-      title: "Product Management",
-      description: "Strategic roadmapping, stakeholder alignment, and cross-functional team leadership",
-    },
-    {
-      title: "AI/ML Integration",
-      description: "Deploying intelligent systems, LLM orchestration, and model selection",
-    },
-    {
-      title: "Technical Prototyping",
-      description: "Rapid MVP development, Figma to code, full-stack proof of concepts",
-    },
-    {
-      title: "API Orchestration",
-      description: "System architecture, microservices design, and integration planning",
-    },
-  ];
-
-    const projects = [
+  const projects = [
     {
       title: "Unified AI Fabric & Copilot for Security Operations",
-      description: "Architected a unified AI Fabric for enterprise security operations, moving from siloed features to a scalable multi-tenant platform. Designed comprehensive system diagrams and interactive prototype showcasing threat intelligence, predictive analytics, and GenAI with RAG. Included production considerations: gated rollouts, observability, cost controls, and tiered monetization strategy aligned to measurable business outcomes.",
       quote: "From whiteboard to wireframes and more — architecting an enterprise AI platform\nwith production-grade thinking for enterprise scalability",
+      description: "Architected a unified AI Fabric for enterprise security operations, moving from siloed features to a scalable multi-tenant platform. Designed comprehensive system diagrams and interactive prototype showcasing threat intelligence, predictive analytics, and GenAI with RAG. Included production considerations: gated rollouts, observability, cost controls, and tiered monetization strategy aligned to measurable business outcomes.",
       tags: ["System Architecture", "AI Platform", "Multi-tenant SaaS", "MLOps", "RAG", "Kubernetes", "Enterprise PM", "Eraser.io", "Figma"],
+      imageUrl: "/images/cybersecurity.png",
       links: [
         { text: "View Architecture", url: "https://app.eraser.io/workspace/woQji0k3PtmoGtlTHJaN?origin=share" },
         { text: "View Prototype", url: "https://www.figma.com/make/9Qe6qoygdDU2VYeggiAmmC/CyberSec-AI-Prototype---v0.1?node-id=0-1&t=spwfkxfwzOeVFuJx-1" },
       ],
-      image: "/images/cybersecurity.png",
-      inDevelopment: false,
     },
     {
-      title: "Joblication\nAI Job Application Assistant",
-      description: "Full-stack Flask application automating job applications end-to-end. Scrapes job postings, structures data, populates Trello boards with intelligent tags, and generates personalized cover letters using OpenAI. Built with modular architecture, template-based document generation, and production-grade error handling. Solves the real problem of scaling personalized job applications while maintaining quality and consistency.",
+      title: "Joblication - AI Job Application Assistant",
       quote: "From job posting to personalized cover letter in one click\nautomation meets personalization at scale",
+      description: "Full-stack Flask application automating job applications end-to-end. Scrapes job postings, structures data, populates Trello boards with intelligent tags, and generates personalized cover letters using OpenAI. Built with modular architecture, template-based document generation, and production-grade error handling. Solves the real problem of scaling personalized job applications while maintaining quality and consistency.",
       tags: ["Python", "Flask", "OpenAI API", "Web Scraping", "BeautifulSoup", "Trello API", "Automation", "Full-Stack", "python-docx"],
+      imageUrl: "/images/joblication.png",
       links: [
         { text: "View on GitHub", url: "https://github.com/ohkai-ship-it/job-application-automation" },
       ],
-      image: "/images/joblication.png",
-      inDevelopment: false,
     },
     {
-      title: "Agentic AI Travel Assistant\nIntelligent Journey Planning",
-      description: "Building a multi-agent system for intelligent travel planning and booking. Orchestrating specialized AI agents that autonomously handle research, price optimization, itinerary coordination, and booking workflows. Exploring cutting-edge agentic frameworks for agent communication, task delegation, and coordinated decision-making. Each agent operates with specific expertise while collaborating toward unified travel goals.",
+      title: "Agentic AI Travel Assistant - Intelligent Journey Planning",
       quote: "Teaching AI agents to plan your perfect trip\nautonomous, coordinated, intelligent collaboration\nwhere each agent brings specialized expertise",
+      description: "Building a multi-agent system for intelligent travel planning and booking. Orchestrating specialized AI agents that autonomously handle research, price optimization, itinerary coordination, and booking workflows. Exploring cutting-edge agentic frameworks for agent communication, task delegation, and coordinated decision-making. Each agent operates with specific expertise while collaborating toward unified travel goals.",
       tags: ["Agentic AI", "LangChain", "Multi-Agent Systems", "Autonomous Systems", "LLM Orchestration", "Product Development"],
+      imageUrl: "/images/travel-assistant.svg",
+      status: "In Development",
       links: [],
-      image: "/images/travel-assistant.svg",
-      inDevelopment: true,
+    }
+  ];
+
+  const skills = [
+    {
+      title: 'Product Strategy',
+      description: 'Define product vision and roadmap aligned with business objectives. Expert in market analysis, competitive positioning, and strategic planning for technical products.'
     },
+    {
+      title: 'Technical Leadership',
+      description: 'Bridge business and engineering teams. Deep understanding of system architecture, API design, and modern development practices including AI/ML integration.'
+    },
+    {
+      title: 'Data-Driven Decision Making',
+      description: 'Leverage analytics and metrics to guide product development. Proficient in A/B testing, user research, and translating data insights into actionable strategies.'
+    },
+    {
+      title: 'Stakeholder Management',
+      description: 'Communicate effectively with C-level executives, engineering teams, and customers. Expert in aligning diverse stakeholder interests and managing expectations.'
+    },
+    {
+      title: 'Agile & Scrum',
+      description: 'Lead cross-functional teams using agile methodologies. Experienced in sprint planning, backlog management, and continuous delivery practices.'
+    },
+    {
+      title: 'AI/ML Products',
+      description: 'Design and ship AI-powered features. Understanding of RAG, LLMs, prompt engineering, and practical implementation of machine learning solutions.'
+    },
+    {
+      title: 'System Architecture',
+      description: 'Evaluate technical trade-offs and scalability. Knowledge of cloud infrastructure, microservices, API design, and modern development frameworks.'
+    },
+    {
+      title: 'Growth & Optimization',
+      description: 'Drive user acquisition and retention through product improvements. Expert in conversion optimization, funnel analysis, and growth experimentation.'
+    }
   ];
 
   return (
     <div className="min-h-screen bg-[#F2F2F2]">
-      {/* Header Section */}
-      <header className="relative overflow-hidden text-white py-32 px-4" style={{ background: 'linear-gradient(135deg, #3D4E5C 0%, #658199 100%)' }}>
-        <div className="max-w-6xl mx-auto text-center">
-          <h1 className="mb-4 text-4xl font-bold">Dr. Kai Voges</h1>
-          <p className="text-xl opacity-90">Product Manager | AI & Technical Architecture</p>
-        </div>
-      </header>
+      <Navigation />
 
-      {/* Navigation Bar */}
-      <nav className="sticky top-0 bg-white shadow-md z-50">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="flex justify-center gap-8 py-4">
-            {["about", "skills", "projects", "contact"].map((section) => (
-              <button
-                key={section}
-                onClick={() => scrollToSection(section)}
-                className={`capitalize transition-colors duration-300 ${
-                  activeSection === section ? "font-semibold" : "hover:text-opacity-70"
-                }`}
-                style={{
-                  color: activeSection === section ? '#2A747E' : '#717171'
-                }}
-              >
-                {section}
-              </button>
-            ))}
-          </div>
-        </div>
-      </nav>
+      {/* Hero Section */}
+      <header 
+        id="home" 
+        className="text-white py-32 px-4 text-center"
+        style={{ background: 'linear-gradient(135deg, #3D4E5C 0%, #658199 100%)' }}
+      >
+        <h1 className="mb-4" style={{ color: '#F2F2F2' }}>Dr. Kai Voges</h1>
+        <p className="text-xl" style={{ color: '#F2F2F2', opacity: 0.95 }}>
+          Product Leadership | AI & Platform Thinking | Founder
+        </p>
+      </header>
 
       {/* About Section */}
       <section id="about" className="py-20 px-4" style={{ backgroundColor: '#E5E5E5' }}>
-        <div className="max-w-5xl mx-auto">
-          <Card className="overflow-hidden shadow-md" style={{ borderColor: '#E5E5E5' }}>
-            <div className="flex flex-col md:flex-row">
-              {/* Profile Image */}
-              <div className="md:w-1/3 flex items-center justify-center p-8" style={{ backgroundColor: '#FFFFFF' }}>
-                <div className="w-56 h-56 rounded-full overflow-hidden border-4 shadow-lg" style={{ borderColor: '#3D4E5C' }}>
-                  <img 
-                    src="/profile.jpg" 
-                    alt="Dr. Kai Voges" 
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      // Fallback: create a placeholder circle
-                      (e.currentTarget as HTMLImageElement).style.display = 'none';
-                      const parent = (e.currentTarget as HTMLImageElement).parentElement;
-                      if (parent) {
-                        parent.style.display = 'flex';
-                        parent.style.alignItems = 'center';
-                        parent.style.justifyContent = 'center';
-                        parent.style.backgroundColor = '#3D4E5C';
-                        parent.innerHTML = '<span style="color: white; font-size: 24px; font-weight: bold;">K</span>';
-                      }
-                    }}
-                  />
-                </div>
+        <div className="max-w-3xl mx-auto">
+          <h2 className="mb-12 text-center text-2xl font-semibold" style={{ color: '#3D4E5C' }}>About</h2>
+          <div className="bg-white shadow-lg p-8" style={{ borderRadius: '0.625rem' }}>
+            <div className="flex gap-8 items-start">
+              {/* Profile Image - Circular */}
+              <div className="flex-shrink-0" style={{ width: '140px', height: '140px', minWidth: '140px', borderRadius: '50%', overflow: 'hidden' }}>
+                <img
+                  src="/images/Voges,-Kai_0100-11qa_web.jpg"
+                  alt="Dr. Kai Voges"
+                  className="rounded-full object-cover"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    borderRadius: '50%'
+                  }}
+                  onError={(e) => {
+                    const img = e.currentTarget as HTMLImageElement;
+                    img.style.display = 'none';
+                    const parent = img.parentElement;
+                    if (parent) {
+                      parent.innerHTML = '<div style="width: 140px; height: 140px; background: #3D4E5C; border-radius: 50%; display: flex; align-items: center; justify-content: center;"><span style="color: white; font-size: 48px; font-weight: bold;">K</span></div>';
+                    }
+                  }}
+                />
               </div>
-              
-              {/* About Text */}
-              <div className="md:w-2/3 p-8 flex flex-col justify-center" style={{ backgroundColor: '#FFFFFF' }}>
-                <h2 className="mb-6 text-2xl font-semibold" style={{ color: '#3D4E5C' }}>About</h2>
-                <div className="space-y-4" style={{ color: '#333333', lineHeight: '1.6' }}>
-                  <p>
-                    I turn complex technical challenges into successful products that drive business value. With a track record of managing <span style={{ fontWeight: '600', color: '#2A747E' }}>15M+ EUR</span> in product value across multiple domains, I bring deep technical expertise combined with strategic thinking to deliver measurable results.
-                  </p>
-                  <p>
-                    My approach combines system-level architecture understanding with customer-centric design. I excel at bridging the gap between engineering teams and business stakeholders, using <span style={{ fontWeight: '600', color: '#2A747E' }}>data-driven insights</span> to guide decisions. Whether it's building <span style={{ fontWeight: '600', color: '#2A747E' }}>AI-powered platforms</span>, optimizing <span style={{ fontWeight: '600', color: '#2A747E' }}>mobile experiences</span>, or scaling <span style={{ fontWeight: '600', color: '#2A747E' }}>enterprise solutions</span>, I focus on outcomes that matter: revenue growth, cost reduction, and user satisfaction.
-                  </p>
-                </div>
+
+              {/* Text Content */}
+              <div className="flex-1">
+                <p className="mb-4" style={{ color: '#333333', lineHeight: '1.6', fontSize: '15px' }}>
+                  I bridge the gap between complex technical systems and meaningful business outcomes. As a Product Manager and technical leader, I transform ambitious ideas into products that create real impact. My expertise spans system architecture, AI integration, and cross-functional team leadership.
+                </p>
+                <p className="mb-4" style={{ color: '#333333', lineHeight: '1.6', fontSize: '15px' }}>
+                  I excel at understanding what matters most—whether that's accelerating product development, scaling engineering practices, or building intelligent systems. By combining deep technical knowledge with strategic thinking, I guide teams toward solutions that balance innovation with practical execution.
+                </p>
+                <p style={{ color: '#333333', lineHeight: '1.6', fontSize: '15px' }}>
+                  My approach combines strategic vision with hands-on execution. I've worked across security operations, AI platforms, and automation projects—always focused on delivering measurable impact. I thrive in environments where innovation meets pragmatism, where we can explore cutting-edge technologies while maintaining focus on what actually matters to users and business goals.
+                </p>
               </div>
             </div>
-          </Card>
+          </div>
         </div>
       </section>
 
       {/* Skills Section */}
       <section id="skills" className="py-20 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-center mb-12 text-2xl font-semibold" style={{ color: '#3D4E5C' }}>Core Capabilities</h2>
+          <h2 className="mb-12 text-center">Skills</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {skills.map((skill, index) => (
-              <Card
+              <SkillCard
                 key={index}
-                className="p-6 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border rounded-lg"
-                style={{ borderColor: '#E5E5E5' }}
-              >
-                <h3 className="mb-3 text-xl font-medium" style={{ color: '#3D4E5C' }}>{skill.title}</h3>
-                <p style={{ color: '#717171' }}>{skill.description}</p>
-              </Card>
+                title={skill.title}
+                description={skill.description}
+              />
             ))}
           </div>
         </div>
@@ -174,68 +152,19 @@ export default function App() {
       {/* Projects Section */}
       <section id="projects" className="py-20 px-4" style={{ backgroundColor: '#F2F2F2' }}>
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-center mb-12 text-2xl font-semibold" style={{ color: '#3D4E5C' }}>Projects</h2>
+          <h2 className="mb-12 text-center" style={{ color: '#3D4E5C' }}>Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <Card
+              <ProjectCard
                 key={index}
-                className="overflow-hidden shadow-md hover:shadow-lg hover:-translate-y-2 transition-all duration-300 border rounded-lg bg-white flex flex-col"
-                style={{ borderColor: '#E5E5E5' }}
-              >
-                <div className="relative h-48 overflow-hidden" style={{ background: 'linear-gradient(135deg, #3D4E5C 0%, #658199 100%)' }}>
-                  <ImageWithFallback
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover opacity-60"
-                  />
-                  {project.inDevelopment && (
-                    <div className="absolute top-4 right-4">
-                      <Badge className="text-white border-none font-medium text-xs" style={{ backgroundColor: '#E4980E' }}>
-                        In Development
-                      </Badge>
-                    </div>
-                  )}
-                </div>
-                <div className="p-6 flex flex-col h-full">
-                  <h3 className="mb-3 text-xl font-semibold min-h-16" style={{ color: '#3D4E5C' }}>{project.title}</h3>
-                  <p className="italic mb-4 text-sm min-h-16" style={{ color: '#717171', lineHeight: "1.4" }}>"{project.quote}"</p>
-                  <p className="mb-4" style={{ color: '#333333' }}>{project.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-4 min-h-10">
-                    {project.tags.map((tag, tagIndex) => (
-                      <Badge
-                        key={tagIndex}
-                        className="text-xs font-medium border"
-                        style={{ backgroundColor: '#F2F2F2', color: '#3D4E5C', borderColor: '#E5E5E5' }}
-                      >
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                  <div className="mt-auto">
-                    <div className="pt-4" style={{ borderTop: '1px solid #E5E5E5' }}>
-                      {project.links && project.links.length > 0 && (
-                        <>
-                          {project.links.map((link, linkIndex) => (
-                            <div key={linkIndex} className="mb-2">
-                              <a
-                                href={link.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-sm font-semibold no-underline transition-colors hover:underline"
-                                style={{ color: '#2A747E' }}
-                                onMouseEnter={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#E4980E'}
-                                onMouseLeave={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#2A747E'}
-                              >
-                                {link.text} →
-                              </a>
-                            </div>
-                          ))}
-                        </>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </Card>
+                title={project.title}
+                quote={project.quote}
+                description={project.description}
+                tags={project.tags}
+                imageUrl={project.imageUrl}
+                status={project.status}
+                links={project.links}
+              />
             ))}
           </div>
         </div>
@@ -244,66 +173,86 @@ export default function App() {
       {/* Contact Section */}
       <section id="contact" className="py-20 px-4 bg-white">
         <div className="max-w-3xl mx-auto">
-          <Card className="p-8 shadow-md border rounded-lg text-center" style={{ borderColor: '#E5E5E5' }}>
-            <h2 className="mb-6 text-2xl font-semibold" style={{ color: '#3D4E5C' }}>Let's Connect</h2>
-            <p className="mb-8" style={{ color: '#333333' }}>
-              Interested in collaborating or discussing AI product development? Reach out through any of these channels.
+          <h2 className="mb-12 text-center">Let's Connect</h2>
+          <div className="bg-white shadow-lg p-8 text-center" style={{ borderRadius: '10px' }}>
+            <p className="mb-8" style={{ color: '#717171' }}>
+              I'm always interested in discussing new opportunities, innovative projects, or potential collaborations. Let's talk about how we can create value together.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <div className="flex justify-center gap-6">
               <a
                 href="mailto:kai.voges@gmx.net"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 text-white rounded-md transition-all duration-300 font-semibold"
-                style={{ backgroundColor: '#2A747E' }}
-                onMouseEnter={(e) => (e.currentTarget as HTMLAnchorElement).style.backgroundColor = '#3D4E5C'}
-                onMouseLeave={(e) => (e.currentTarget as HTMLAnchorElement).style.backgroundColor = '#2A747E'}
+                className="inline-flex items-center gap-2 px-6 py-3 border-2 transition-all duration-300"
+                style={{ 
+                  borderColor: '#3D4E5C',
+                  color: '#3D4E5C',
+                  borderRadius: '10px'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#3D4E5C';
+                  e.currentTarget.style.color = '#FFFFFF';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.color = '#3D4E5C';
+                }}
               >
                 <Mail size={20} />
                 Email
               </a>
               <a
-                href="https://github.com/ohkai-ship-it"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 rounded-md transition-all duration-300 font-semibold"
-                style={{ borderColor: '#3D4E5C', color: '#3D4E5C' }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.backgroundColor = '#3D4E5C';
-                  (e.currentTarget as HTMLAnchorElement).style.color = '#FFFFFF';
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.backgroundColor = 'transparent';
-                  (e.currentTarget as HTMLAnchorElement).style.color = '#3D4E5C';
-                }}
-              >
-                <Github size={20} />
-                GitHub
-              </a>
-              <a
                 href="https://www.linkedin.com/in/worldapprentice/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 rounded-md transition-all duration-300 font-semibold"
-                style={{ borderColor: '#3D4E5C', color: '#3D4E5C' }}
+                className="inline-flex items-center gap-2 px-6 py-3 border-2 transition-all duration-300"
+                style={{ 
+                  borderColor: '#3D4E5C',
+                  color: '#3D4E5C',
+                  borderRadius: '10px'
+                }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.backgroundColor = '#3D4E5C';
-                  (e.currentTarget as HTMLAnchorElement).style.color = '#FFFFFF';
+                  e.currentTarget.style.backgroundColor = '#3D4E5C';
+                  e.currentTarget.style.color = '#FFFFFF';
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.backgroundColor = 'transparent';
-                  (e.currentTarget as HTMLAnchorElement).style.color = '#3D4E5C';
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.color = '#3D4E5C';
                 }}
               >
                 <Linkedin size={20} />
                 LinkedIn
               </a>
+              <a
+                href="https://github.com/ohkai-ship-it"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 border-2 transition-all duration-300"
+                style={{ 
+                  borderColor: '#3D4E5C',
+                  color: '#3D4E5C',
+                  borderRadius: '10px'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#3D4E5C';
+                  e.currentTarget.style.color = '#FFFFFF';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.color = '#3D4E5C';
+                }}
+              >
+                <Github size={20} />
+                GitHub
+              </a>
             </div>
-          </Card>
+          </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="text-white py-8 text-center" style={{ backgroundColor: '#333333' }}>
-        <p style={{ color: '#717171' }}>© 2025 Portfolio. All rights reserved.</p>
+      <footer className="py-8 px-4 text-center" style={{ backgroundColor: '#3D4E5C', color: '#F2F2F2' }}>
+        <p className="text-sm" style={{ color: '#717171' }}>
+          © 2025 Dr. Kai Voges. All rights reserved.
+        </p>
       </footer>
     </div>
   );
