@@ -76,11 +76,11 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-light-gray">
       {/* Header Section */}
-      <header className="relative overflow-hidden bg-gradient-to-r from-[#323B4C] to-[#4a5563] text-white py-32 px-4">
+      <header className="relative overflow-hidden bg-gradient-primary text-white py-32 px-4">
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="mb-4">Dr. Kai Voges</h1>
+          <h1 className="mb-4 text-display">Dr. Kai Voges</h1>
           <p className="text-xl opacity-90">Product Manager | AI & Technical Architecture</p>
         </div>
       </header>
@@ -94,7 +94,7 @@ export default function App() {
                 key={section}
                 onClick={() => scrollToSection(section)}
                 className={`capitalize transition-colors duration-300 ${
-                  activeSection === section ? "text-[#323B4C]" : "text-gray-700 hover:text-[#323B4C]"
+                  activeSection === section ? "text-teal font-semibold" : "text-dark-gray hover:text-teal"
                 }`}
               >
                 {section}
@@ -107,9 +107,9 @@ export default function App() {
       {/* About Section */}
       <section id="about" className="py-20 px-4">
         <div className="max-w-3xl mx-auto">
-          <Card className="p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <h2 className="mb-6 text-[#323B4C]">About</h2>
-            <div className="space-y-4 text-gray-700">
+          <Card className="p-8 shadow-md hover:shadow-lg transition-shadow duration-300 border border-medium-gray rounded-lg">
+            <h2 className="mb-6 text-h2 text-slate-blue font-semibold">About</h2>
+            <div className="space-y-4 text-charcoal">
               <p>
                 I specialize in bridging the gap between complex technical systems and user needs. As a Product Manager with deep technical expertise in AI and system architecture, I transform ambitious ideas into scalable, intelligent products. My approach combines strategic thinking with hands-on prototyping to validate concepts quickly and effectively.
               </p>
@@ -124,15 +124,15 @@ export default function App() {
       {/* Skills Section */}
       <section id="skills" className="py-20 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-center mb-12 text-[#323B4C]">Core Capabilities</h2>
+          <h2 className="text-center mb-12 text-h2 text-slate-blue font-semibold">Core Capabilities</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {skills.map((skill, index) => (
               <Card
                 key={index}
-                className="p-6 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                className="p-6 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-medium-gray rounded-lg"
               >
-                <h3 className="mb-3 text-[#323B4C]">{skill.title}</h3>
-                <p className="text-gray-600">{skill.description}</p>
+                <h3 className="mb-3 text-h3 text-slate-blue font-medium">{skill.title}</h3>
+                <p className="text-dark-gray text-body">{skill.description}</p>
               </Card>
             ))}
           </div>
@@ -140,16 +140,16 @@ export default function App() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 px-4">
+      <section id="projects" className="py-20 px-4 bg-light-gray">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-center mb-12 text-[#323B4C]">Projects</h2>
+          <h2 className="text-center mb-12 text-h2 text-slate-blue font-semibold">Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <Card
                 key={index}
-                className="overflow-hidden shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
+                className="overflow-hidden shadow-md hover:shadow-lg hover:-translate-y-2 transition-all duration-300 border border-medium-gray rounded-lg bg-white flex flex-col"
               >
-                <div className="relative h-48 bg-gradient-to-br from-[#323B4C] to-[#4a5563] overflow-hidden">
+                <div className="relative h-48 bg-gradient-primary overflow-hidden">
                   <ImageWithFallback
                     src={project.image}
                     alt={project.title}
@@ -157,29 +157,28 @@ export default function App() {
                   />
                   {project.inDevelopment && (
                     <div className="absolute top-4 right-4">
-                      <Badge className="bg-yellow-500 text-white border-none">
+                      <Badge className="bg-vibrant-orange text-white border-none font-medium text-micro">
                         In Development
                       </Badge>
                     </div>
                   )}
                 </div>
                 <div className="p-6 flex flex-col h-full">
-                  <h3 className="mb-3 text-[#323B4C] text-xl font-semibold min-h-16">{project.title}</h3>
-                  <p className="text-gray-500 italic mb-4 text-sm min-h-16" style={{ lineHeight: "1.4" }}>"{project.quote}"</p>
-                  <p className="text-gray-700 mb-4">{project.description}</p>
+                  <h3 className="mb-3 text-h3 text-slate-blue font-semibold min-h-16">{project.title}</h3>
+                  <p className="text-dark-gray italic mb-4 text-small min-h-16" style={{ lineHeight: "1.4" }}>"{project.quote}"</p>
+                  <p className="text-charcoal mb-4 text-body">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4 min-h-10">
                     {project.tags.map((tag, tagIndex) => (
                       <Badge
                         key={tagIndex}
-                        variant="secondary"
-                        className="bg-gray-100 text-[#323B4C] hover:bg-gray-200"
+                        className="bg-light-gray text-slate-blue border border-medium-gray text-micro font-medium"
                       >
                         {tag}
                       </Badge>
                     ))}
                   </div>
                   <div className="mt-auto">
-                    <div className="pt-4 border-t border-gray-200">
+                    <div className="pt-4 border-t border-medium-gray">
                       {project.links && project.links.length > 0 && (
                         <>
                           {project.links.map((link, linkIndex) => (
@@ -188,7 +187,7 @@ export default function App() {
                                 href={link.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-[#323B4C] text-sm font-medium no-underline hover:text-gray-600 hover:underline transition-colors"
+                                className="text-teal text-small font-semibold no-underline hover:text-vibrant-orange transition-colors"
                               >
                                 {link.text} →
                               </a>
@@ -208,15 +207,15 @@ export default function App() {
       {/* Contact Section */}
       <section id="contact" className="py-20 px-4 bg-white">
         <div className="max-w-3xl mx-auto">
-          <Card className="p-8 shadow-lg text-center">
-            <h2 className="mb-6 text-[#323B4C]">Let's Connect</h2>
-            <p className="text-gray-700 mb-8">
+          <Card className="p-8 shadow-md border border-medium-gray rounded-lg text-center">
+            <h2 className="mb-6 text-h2 text-slate-blue font-semibold">Let's Connect</h2>
+            <p className="text-charcoal mb-8 text-body">
               Interested in collaborating or discussing AI product development? Reach out through any of these channels.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a
                 href="mailto:kai.voges@gmx.net"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-[#323B4C] text-[#323B4C] rounded-md hover:bg-[#323B4C] hover:text-white transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-teal text-white rounded-md hover:bg-slate-blue transition-all duration-300 font-semibold"
               >
                 <Mail size={20} />
                 Email
@@ -225,7 +224,7 @@ export default function App() {
                 href="https://github.com/ohkai-ship-it"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-[#323B4C] text-[#323B4C] rounded-md hover:bg-[#323B4C] hover:text-white transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-slate-blue text-slate-blue rounded-md hover:bg-slate-blue hover:text-white transition-all duration-300 font-semibold"
               >
                 <Github size={20} />
                 GitHub
@@ -234,7 +233,7 @@ export default function App() {
                 href="https://www.linkedin.com/in/worldapprentice/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-[#323B4C] text-[#323B4C] rounded-md hover:bg-[#323B4C] hover:text-white transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-slate-blue text-slate-blue rounded-md hover:bg-slate-blue hover:text-white transition-all duration-300 font-semibold"
               >
                 <Linkedin size={20} />
                 LinkedIn
@@ -245,8 +244,8 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#333] text-white py-8 text-center">
-        <p className="text-gray-400">© 2025 Portfolio. All rights reserved.</p>
+      <footer className="bg-charcoal text-white py-8 text-center">
+        <p className="text-dark-gray">© 2025 Portfolio. All rights reserved.</p>
       </footer>
     </div>
   );
