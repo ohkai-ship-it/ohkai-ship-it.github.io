@@ -108,17 +108,45 @@ export default function App() {
       </nav>
 
       {/* About Section */}
-      <section id="about" className="py-20 px-4">
-        <div className="max-w-3xl mx-auto">
-          <Card className="p-8 shadow-md hover:shadow-lg transition-shadow duration-300 border rounded-lg" style={{ borderColor: '#E5E5E5' }}>
-            <h2 className="mb-6 text-2xl font-semibold" style={{ color: '#3D4E5C' }}>About</h2>
-            <div className="space-y-4" style={{ color: '#333333' }}>
-              <p>
-                I specialize in bridging the gap between complex technical systems and user needs. As a Product Manager with deep technical expertise in AI and system architecture, I transform ambitious ideas into scalable, intelligent products. My approach combines strategic thinking with hands-on prototyping to validate concepts quickly and effectively.
-              </p>
-              <p>
-                With experience spanning AI/ML integration, API orchestration, and full-stack development, I bring a systems-thinking mindset to product development. I excel at creating detailed technical specifications, architectural diagrams, and interactive prototypes that align cross-functional teams and accelerate development cycles.
-              </p>
+      <section id="about" className="py-20 px-4" style={{ backgroundColor: '#E5E5E5' }}>
+        <div className="max-w-5xl mx-auto">
+          <Card className="overflow-hidden shadow-md" style={{ borderColor: '#E5E5E5' }}>
+            <div className="flex flex-col md:flex-row">
+              {/* Profile Image */}
+              <div className="md:w-1/3 flex items-center justify-center p-8" style={{ backgroundColor: '#FFFFFF' }}>
+                <div className="w-56 h-56 rounded-full overflow-hidden border-4 shadow-lg" style={{ borderColor: '#3D4E5C' }}>
+                  <img 
+                    src="/profile.jpg" 
+                    alt="Dr. Kai Voges" 
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      // Fallback: create a placeholder circle
+                      (e.currentTarget as HTMLImageElement).style.display = 'none';
+                      const parent = (e.currentTarget as HTMLImageElement).parentElement;
+                      if (parent) {
+                        parent.style.display = 'flex';
+                        parent.style.alignItems = 'center';
+                        parent.style.justifyContent = 'center';
+                        parent.style.backgroundColor = '#3D4E5C';
+                        parent.innerHTML = '<span style="color: white; font-size: 24px; font-weight: bold;">K</span>';
+                      }
+                    }}
+                  />
+                </div>
+              </div>
+              
+              {/* About Text */}
+              <div className="md:w-2/3 p-8 flex flex-col justify-center" style={{ backgroundColor: '#FFFFFF' }}>
+                <h2 className="mb-6 text-2xl font-semibold" style={{ color: '#3D4E5C' }}>About</h2>
+                <div className="space-y-4" style={{ color: '#333333', lineHeight: '1.6' }}>
+                  <p>
+                    I turn complex technical challenges into successful products that drive business value. With a track record of managing <span style={{ fontWeight: '600', color: '#2A747E' }}>15M+ EUR</span> in product value across multiple domains, I bring deep technical expertise combined with strategic thinking to deliver measurable results.
+                  </p>
+                  <p>
+                    My approach combines system-level architecture understanding with customer-centric design. I excel at bridging the gap between engineering teams and business stakeholders, using <span style={{ fontWeight: '600', color: '#2A747E' }}>data-driven insights</span> to guide decisions. Whether it's building <span style={{ fontWeight: '600', color: '#2A747E' }}>AI-powered platforms</span>, optimizing <span style={{ fontWeight: '600', color: '#2A747E' }}>mobile experiences</span>, or scaling <span style={{ fontWeight: '600', color: '#2A747E' }}>enterprise solutions</span>, I focus on outcomes that matter: revenue growth, cost reduction, and user satisfaction.
+                  </p>
+                </div>
+              </div>
             </div>
           </Card>
         </div>
